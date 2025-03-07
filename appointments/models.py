@@ -9,6 +9,7 @@ class Meeting(models.Model):
     description = models.TimeField(**optional_field)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+    max_participants = models.PositiveIntegerField(default=10)
     creator = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='created_meetings')
     participants = models.ManyToManyField(
